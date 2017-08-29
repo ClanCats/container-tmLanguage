@@ -1,0 +1,69 @@
+%YAML 1.2
+---
+name: CCContainer 
+scopeName: source.cccontainer
+fileTypes: [container, ctn]
+uuid: b5698b0b-0c5b-4a56-9645-c8c90082f81d
+patterns:
+
+  - name: comment.block.ctn
+    begin: /\*
+    beginCaptures:
+      '0': {name: punctuation.definition.comment.begin.ctn}
+    end: \*/
+    endCaptures:
+      '0': {name: punctuation.definition.comment.end.ctn}
+
+  - name: comment.line.double-slash.ctn
+    match: (//).*$\n?
+    captures:
+      '1': {name: punctuation.definition.comment.ctn}
+
+  - name: comment.line.shebang.ctn
+    match: ^(#!).*$\n?
+    captures:
+      '1': {name: punctuation.definition.comment.ctn}
+
+  - name: comment.line.number-sign.ctn
+    match: (#).*$\n?
+    captures:
+      '1': {name: punctuation.definition.comment.ctn}
+
+  - name: keyword.control.ctn
+    match: \b(import|use|namespace|when)\b
+
+  - name: string.quoted.ctn
+    begin: (["'])
+    beginCaptures:
+      '0': {name: punctuation.definition.string.begin.ctn}
+    end: (["'])
+    endCaptures:
+      '1': {name: punctuation.definition.string.end.ctn}
+
+  - name: constant.numeric.ctn
+    match: >-
+      (?xi)
+        (?:\B[-+])?
+        (?:
+          (
+            \B\.[0-9]+|               # e.g. .999
+            \b[0-9]+(\.[0-9]*)?       # e.g. 999.999, 999. or 999
+          )(e[-+]?[0-9]+)?            # e.g. e+123, E-123
+        )
+
+  - name: variable.parameter.ctn
+    match: \:[a-zA-Z0-9_\.]+
+
+  - name: variable.language.ctn
+    match: \@container+
+
+  - name: variable.other.ctn
+    match: \@[a-zA-Z0-9_\.]+
+
+  - name: keyword.operator.assignment.ctn
+    match: >-
+      (?x)
+        :(?!:)
+
+  
+...
