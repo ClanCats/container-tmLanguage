@@ -2,8 +2,15 @@
 ---
 name: CCContainer 
 scopeName: source.cccontainer
-fileTypes: [container, ctn]
 uuid: b5698b0b-0c5b-4a56-9645-c8c90082f81d
+fileTypes:
+  - container
+  - ctn
+  - ctn.env
+
+foldingStartMarker: /\*\*|\{\s*$
+foldingStartMarker: \*\*/|^\s*\}
+
 patterns:
 
   - name: comment.block.ctn
@@ -54,11 +61,18 @@ patterns:
   - name: variable.parameter.ctn
     match: \:[a-zA-Z0-9_\.]+
 
-  - name: variable.language.ctn
+  - name: support.variable.ctn
     match: \@container+
 
-  - name: variable.other.ctn
+  - name: variable.other.object.ctn
+    match: >-
+      \@[a-zA-Z0-9_\.]+:
+
+  - name: support.variable.function.ctn
     match: \@[a-zA-Z0-9_\.]+
+
+  - name: entity.name.function.ctn
+    match: \- ([a-zA-Z0-9_\.]+)
 
   - name: keyword.operator.assignment.ctn
     match: >-

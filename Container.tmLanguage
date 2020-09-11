@@ -6,7 +6,10 @@
 	<array>
 		<string>container</string>
 		<string>ctn</string>
+		<string>ctn.env</string>
 	</array>
+	<key>foldingStartMarker</key>
+	<string>\*\*/|^\s*\}</string>
 	<key>name</key>
 	<string>CCContainer</string>
 	<key>patterns</key>
@@ -130,13 +133,25 @@
 			<key>match</key>
 			<string>\@container+</string>
 			<key>name</key>
-			<string>variable.language.ctn</string>
+			<string>support.variable.ctn</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\@[a-zA-Z0-9_\.]+:</string>
+			<key>name</key>
+			<string>variable.other.object.ctn</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>\@[a-zA-Z0-9_\.]+</string>
 			<key>name</key>
-			<string>variable.other.ctn</string>
+			<string>support.variable.function.ctn</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\- ([a-zA-Z0-9_\.]+)</string>
+			<key>name</key>
+			<string>entity.name.function.ctn</string>
 		</dict>
 		<dict>
 			<key>match</key>
